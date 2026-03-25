@@ -9,11 +9,12 @@
 - psql
 
 ## 資料表
-|欄位|大小|
-|machines（設備）|6|
-|lots（批次）|100|
-|measurements（量測）|400|
-|defects（缺陷數）|80|
+|欄位                |大小|
+|-------------------|----|
+|machines（設備    ）|   6|
+|lots（批次）        | 100|
+|measurements（量測）| 400|
+|defects（缺陷數）   | 80 |
 
 # 練習
 - select, where, order by
@@ -38,16 +39,29 @@
 
 ## 結果
 1.
- machine_name | avg_yield | yield_rank
---------------+-----------+------------
- CMP_01       |     96.60 |          1
- ETCH_01      |     96.57 |          2
- CVD_01       |     96.56 |          3
- IMPLANT_01   |     96.49 |          4
- ETCH_02      |     95.27 |          5
- PHOTO_01     |     94.57 |          6
+=== Machine Yield Ranking ===
+|machine_name | avg_yield | yield_rank|
+|-------------|-----------|-----------|
+|CMP_01       |     96.60 |          1|
+|ETCH_01      |     96.57 |          2|
+|CVD_01       |     96.56 |          3|
+|IMPLANT_01   |     96.49 |          4|
+|ETCH_02      |     95.27 |          5|
+|PHOTO_01     |     94.57 |          6|
 2.
+=== Shift Performance ===
+|shift  |avg_yield  |yield_std|
+|-------|-----------|---------|
+|Night  |  96.53    |     1.47|
+|Day    |  95.74    |     2.41|
 3.
+=== Low Yield Lots ===
+|lot_no |machine_name |shift|avg_yield|  total_defects|
+|-------|-------------|-----|---------|---------------|
+|LOT016 |PHOTO_01     |Day  |    91.57|             72|
+|LOT046 |PHOTO_01     |Day  |    91.71|             84|
+|LOT062 |ETCH_02      |Day  |    92.37|             72|
+|LOT088 |PHOTO_01     |Day  |    92.38|             76|
 
 # psql 指令
 - & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -h localhost -p <post> -U <user> -d <database>
